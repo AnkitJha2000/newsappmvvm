@@ -3,26 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/news_nav_graph"
-    app:startDestination="@id/breakingNewsFragment2">
+    app:startDestination="@id/breakingNewsFragment">
     <fragment
-        android:id="@+id/breakingNewsFragment2"
+        android:id="@+id/breakingNewsFragment"
         android:name="com.example.newsapp.ui.ui.fragments.BreakingNewsFragment"
         android:label="fragment_breaking_news"
         tools:layout="@layout/fragment_breaking_news" >
         <action
-            android:id="@+id/action_breakingNewsFragment2_to_articleFragment2"
-            app:destination="@id/articleFragment2"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            />
+            android:id="@+id/action_breakingNewsFragment_pop"
+            app:popUpTo="@id/breakingNewsFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_breakingNewsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
     <fragment
-        android:id="@+id/articleFragment2"
+        android:id="@+id/articleFragment"
         android:name="com.example.newsapp.ui.ui.fragments.ArticleFragment"
         android:label="fragment_article"
-        tools:layout="@layout/fragment_article" />
+        tools:layout="@layout/fragment_article">
+        <argument
+            android:name="article"
+            app:argType="com.example.newsapp.ui.models.Article" />
+        <action
+            android:id="@+id/action_articleFragment_to_breakingNewsFragment"
+            app:destination="@id/breakingNewsFragment" />
+        <action
+            android:id="@+id/action_articleFragment_to_searchNewsFragment"
+            app:destination="@id/searchNewsFragment" />
+        <action
+            android:id="@+id/action_articleFragment2_to_savedNewsFragment"
+            app:destination="@id/savedNewsFragment" />
+        <action
+            android:id="@+id/action_articleFragment2_pop"
+            app:popUpTo="@id/articleFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_articleFragment_to_searchNewsFragment2"
+            app:destination="@id/searchNewsFragment" />
+        <action
+            android:id="@+id/action_articleFragment_to_breakingNewsFragment2"
+            app:destination="@id/breakingNewsFragment" />
+        <action
+            android:id="@+id/action_articleFragment_to_savedNewsFragment"
+            app:destination="@id/savedNewsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchNewsFragment"
         android:name="com.example.newsapp.ui.ui.fragments.SearchNewsFragment"
@@ -30,12 +55,19 @@
         tools:layout="@layout/fragment_search_news" >
         <action
             android:id="@+id/action_searchNewsFragment_to_articleFragment2"
-            app:destination="@id/articleFragment2"
+            app:destination="@id/articleFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_searchNewsFragment_pop"
+            app:popUpTo="@id/breakingNewsFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_searchNewsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
@@ -44,12 +76,23 @@
         tools:layout="@layout/fragment_saved_news" >
         <action
             android:id="@+id/action_savedNewsFragment_to_articleFragment2"
-            app:destination="@id/articleFragment2"
+            app:destination="@id/articleFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_savedNewsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_global_breakingNewsFragment"
+        app:destination="@id/breakingNewsFragment"
+         />
+    <action
+        android:id="@+id/action_global_savedNewsFragment"
+        app:destination="@id/savedNewsFragment"
+        app:popUpTo="@id/breakingNewsFragment" />
 </navigation>
 

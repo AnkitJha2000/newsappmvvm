@@ -12,6 +12,7 @@
         android:id="@+id/rvBreakingNews"
         android:layout_margin="5dp"
         />
+
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,4 +20,5 @@
         android:visibility="invisible"
         android:id="@+id/progressBreakingNews"
         />
+
 </FrameLayout>

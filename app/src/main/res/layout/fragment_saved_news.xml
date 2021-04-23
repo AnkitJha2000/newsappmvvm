@@ -5,9 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.ui.fragments.SavedNewsFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="saved news here" />
+        android:id="@+id/rvSavedNews"
+        android:layout_margin="5dp"
+        />
 
 </FrameLayout>
