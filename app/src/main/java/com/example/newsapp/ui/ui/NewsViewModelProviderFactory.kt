@@ -10,6 +10,4 @@ class NewsViewModelProviderFactory(val newsRepository: NewsRepository) : ViewMod
         return NewsViewModel(newsRepository) as T
     }
 
-
-
 }
